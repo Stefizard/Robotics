@@ -88,7 +88,7 @@
 #define N_D8  4699
 #define N_DS8 4978
 
-int const TEMPO = 1200;
+int const tempo = 1200;
 
 int melody[] = {
   N_D3, N_D3, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_C3, N_C3, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_B2, N_B2, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_AS2, N_AS2, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_D3, N_D3, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_C3, N_C3, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_B2, N_B2, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_AS2, N_AS2, N_D4, N_A3, 0, N_GS3, N_G3, N_F3, N_D3, N_F3, N_G3, N_D4, N_D4, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_C4, N_C4, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_B3, N_B3, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_AS3, N_AS3, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_D4, N_D4, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_C4, N_C4, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_B3, N_B3, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_AS3, N_AS3, N_D5, N_A4, 0, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, N_F4, N_F4, N_F4, N_F4, N_F4, N_D4, N_D4, N_D4, N_F4, N_F4, N_F4, N_G4, N_GS4, N_G4, N_F4, N_D4, N_F4, N_G4, 0, N_F4, N_F4, N_F4, N_G4, N_GS4, N_A4, N_C5, N_A4, N_D5, N_D5, N_D5, N_A4, N_D5, N_C5, N_F4, N_F4, N_F4, N_F4, N_F4, N_D4, N_D4, N_D4, N_F4, N_F4, N_F4, N_F4, N_D4, N_F4, N_E4, N_D4, N_C4, 0, N_G4, N_E4, N_D4, N_D4, N_D4, N_D4, N_F3, N_G3, N_AS3, N_C4, N_D4, N_F4, N_C5, 0, N_F4, N_D4, N_F4, N_G4, N_GS4, N_G4, N_F4, N_D4, N_GS4, N_G4, N_F4, N_D4, N_F4, N_F4, N_F4, N_GS4, N_A4, N_C5, N_A4, N_GS4, N_G4, N_F4, N_D4, N_E4, N_F4, N_G4, N_A4, N_C5, N_CS5, N_GS4, N_GS4, N_G4, N_F4, N_G4, N_F3, N_G3, N_A3, N_F4, N_E4, N_D4, N_E4, N_F4, N_G4, N_E4, N_A4, N_A4, N_G4, N_F4, N_DS4, N_CS4, N_DS4, 0, N_F4, N_D4, N_F4, N_G4, N_GS4, N_G4, N_F4, N_D4, N_GS4, N_G4, N_F4, N_D4, N_F4, N_F4, N_F4, N_GS4, N_A4, N_C5, N_A4, N_GS4, N_G4, N_F4, N_D4, N_E4, N_F4, N_G4, N_A4, N_C5, N_CS5, N_GS4, N_GS4, N_G4, N_F4, N_G4, N_F3, N_G3, N_A3, N_F4, N_E4, N_D4, N_E4, N_F4, N_G4, N_E4, N_A4, N_A4, N_G4, N_F4, N_DS4, N_CS4, N_DS4, 
@@ -110,7 +110,7 @@ const int passiveBuzzer = A0;
 const int activeBuzzer = 8;
 int buttonValue = 0;
 int buzzerReadValue = 0;
-int maxReadValue = 0;
+//int maxReadValue = 0;
 
 int passed = 0;
 unsigned long previousMillis = 0;
@@ -130,18 +130,17 @@ void setup()
 void loop()
 {
   buzzerReadValue = analogRead (passiveBuzzer);
-  if (maxReadValue < buzzerReadValue) maxReadValue = buzzerReadValue;
-  if (buzzerReadValue !=0)
-  {
-    Serial.print (maxReadValue);
-    Serial.print (" ");
-    Serial.println (buzzerReadValue);
-  }
+//  if (maxReadValue < buzzerReadValue) maxReadValue = buzzerReadValue;
+//  if (buzzerReadValue !=0)
+//  {
+//    Serial.print (maxReadValue);
+//    Serial.print (" ");
+//    Serial.println (buzzerReadValue);
+//  }
   if (buzzerReadValue >= threshold)
   {
     previousMillis=millis();
     passed=1;
-    Serial.println("AAAAAAAAAAAA");
   }
 
   if (millis() - previousMillis >= interval && passed == 1)
@@ -150,7 +149,7 @@ void loop()
     for (int thisNote = 0; thisNote < melodyLen && buttonValue == 0; thisNote++)
     {
       if (digitalRead (buttonPin) == 0) buttonValue = 1;
-      noteDuration = TEMPO / noteDurations[thisNote];
+      noteDuration = tempo / noteDurations[thisNote];
       tone (activeBuzzer, melody[thisNote], noteDuration);
       pauseBetweenNotes = noteDuration * 1.45;
       delay (pauseBetweenNotes);
