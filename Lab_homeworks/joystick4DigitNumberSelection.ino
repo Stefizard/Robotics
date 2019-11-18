@@ -74,6 +74,7 @@ void showDigit(int num)
   digitalWrite(digits[num], LOW);
 }
 
+unsigned long currentMillis = 0;
 unsigned long previousMillis = 0;
 const long interval = 500;
 
@@ -168,7 +169,7 @@ void loop()
   }
   lastSwState = swState;
 
-  unsigned long currentMillis = millis();
+  currentMillis = millis();
 
   if (currentMillis - previousMillis >= interval && selection == 1)
   {
