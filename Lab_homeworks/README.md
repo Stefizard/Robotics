@@ -1,3 +1,4 @@
 analogRGBControl: A RGB led controlled by 3 potentiometers, one for each color.  
 knockDetectorBuzzer: A passive buzzer detects a knock on the table, and after 5 seconds Megalovania starts playing from the active buzzer, which can be stoped by pressing the button.  
 joystick4DigitNumberSelection: A 4 digit display that is controlled by a joystick (left and right moves the dot point, joystick press selects the digit, up and down changes that digits value, joystick press takes you to the dot point moving again).  
+gameMenu: A menu in witch a game lasts for 10 seconds, the level increases every 2 seconds, starting at a level chosen in settings (default is 0, maximum is 10). You can also check the highscore for the game (score = level * 3), and the highscore is saved in eeprom. Link to functionality: https://youtu.be/m8yzZ8t7v_o  
