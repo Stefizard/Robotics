@@ -4,6 +4,8 @@ This project is a treasure hunt (maze) type of game that uses the bomb mechanics
 
 ![scheme](https://user-images.githubusercontent.com/49508930/70392336-c0bd6980-19e7-11ea-96c5-91d0b44a3abc.png)  
   
+Demo Video: https://youtu.be/tQh0e8mm8Sc  
+  
 How to play:  
 There are 15 levels in total, and they all have the same objective: find the hidden treasure.  
 You are the blinking dot, and all the other visible dots are walls, which you can not pass through.  
