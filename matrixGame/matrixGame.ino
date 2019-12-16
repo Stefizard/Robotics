@@ -605,20 +605,23 @@ void setup()
   levels[14].objX = 7;
   levels[14].objY = 4;
 
-  hiScore1 = EEPROM.read (0);
+  hiScore1 = EEPROM.read (0) * 256 + EEPROM.read (1);
   EEPROM.write (0, 0);
-  hiScore2 = EEPROM.read (1);
   EEPROM.write (1, 0);
-  hiScore3 = EEPROM.read (2);
+  hiScore2 = EEPROM.read (2) * 256 + EEPROM.read (3);
   EEPROM.write (2, 0);
+  EEPROM.write (3, 0);
+  hiScore3 = EEPROM.read (4) * 256 + EEPROM.read (5);
+  EEPROM.write (4, 0);
+  EEPROM.write (5, 0);
   for (int i = 0; i < 10; i++)
   {
-    hiName1[i] = EEPROM.read (3 + i);
-    hiName2[i] = EEPROM.read (13 + i);
-    hiName3[i] = EEPROM.read (23 + i);
-    EEPROM.write (3+i, name[i]);
-    EEPROM.write (13+i, name[i]);
-    EEPROM.write (23+i, name[i]);
+    hiName1[i] = EEPROM.read (6 + i);
+    hiName2[i] = EEPROM.read (16 + i);
+    hiName3[i] = EEPROM.read (26 + i);
+    EEPROM.write (6 + i, name[i]);
+    EEPROM.write (16 + i, name[i]);
+    EEPROM.write (26 + i, name[i]);
   }
 }
 
@@ -1261,14 +1264,17 @@ void loop()
       {
         lcd.print ("Wanna try again?");
       }
-      EEPROM.write (0, hiScore1);
-      EEPROM.write (1, hiScore2);
-      EEPROM.write (2, hiScore3);
+      EEPROM.write (0, hiScore1 / 256);
+      EEPROM.write (1, hiScore1 % 256);
+      EEPROM.write (2, hiScore2 / 256);
+      EEPROM.write (3, hiScore2 % 256);
+      EEPROM.write (4, hiScore3 / 256);
+      EEPROM.write (5, hiScore3 % 256);
       for (int i = 0; i < 10; i++)
       {
-        EEPROM.write (3+i, hiName1[i]);
-        EEPROM.write (13+i, hiName2[i]);
-        EEPROM.write (23+i, hiName3[i]);
+        EEPROM.write (6 + i, hiName1[i]);
+        EEPROM.write (16 + i, hiName2[i]);
+        EEPROM.write (26 + i, hiName3[i]);
       }
       infoTime = millis();
       infoState = true;
