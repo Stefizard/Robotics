@@ -31,3 +31,5 @@ The hardware needed for this project is:
 * for output of the game state: 8x8 LED matrix for the maze, RGB led for the goal info, active Piezo Buzzer for some sounds (bomb, death, level completed) and the LCD for viewing the game info (level, time left, lives left, score)  
 * for input of the controls: joystick for movement and bomb placing and a button for early detonation of bomb  
 * for control: Arduino UNO board, MAX7219 Driver, wires, resistors, a potentiometer for the LCD, connector cable. 
+  
+![2C5B11BA-0310-45B0-B2BF-BE959E2AA534](https://user-images.githubusercontent.com/49508930/70914914-9855f080-2021-11ea-8624-6b59c08571df.jpeg)
