@@ -45,7 +45,7 @@ bool joyMovedY = false;
 const int minThreshold = 300;
 const int maxThreshold = 700;
 
-short int screenID = 0;
+short int screenID = 0; // current menu screen
 int selection = 0;
 int startingLevelValue = 0;
 const int noOfLevels = 15;
@@ -76,6 +76,7 @@ const int levelLength = 100;
 const int selectedLength = 300;
 const int joyResetTime = 300;
 
+// level info: starting point and end point; will be set in setup
 typedef struct
 {
   char dotX ,dotY, objX, objY; // char because I needed memory
@@ -83,8 +84,10 @@ typedef struct
 
 level levels[noOfLevels];
 
-int levelID = 0;
-int x, y;
+int levelID = 0; // current level
+int x, y; // player coordinates
+
+// declaring levels
 
 const bool level0[8][8] = {
 {1, 1, 1, 0, 0, 1, 1, 1},
@@ -285,6 +288,8 @@ void setColor (int red, int green, int blue)
   analogWrite (greenLedPin, green);
   analogWrite (blueLedPin, blue);
 }
+
+// changing RGB LED colour based on the distance from the player to the end point 
 
 void dist (int x, int y, int a, int b)
 {
@@ -530,6 +535,8 @@ void setup()
   pinMode (pinSW, INPUT_PULLUP);
   pinMode (pinJoySW, INPUT_PULLUP);
 
+  // setting starting point and end point for each level
+  
   levels[0].dotX = 3;
   levels[0].dotY = 0;
   levels[0].objX = 6;
@@ -606,27 +613,19 @@ void setup()
   levels[14].objY = 4;
 
   hiScore1 = EEPROM.read (0) * 256 + EEPROM.read (1);
-  EEPROM.write (0, 0);
-  EEPROM.write (1, 0);
   hiScore2 = EEPROM.read (2) * 256 + EEPROM.read (3);
-  EEPROM.write (2, 0);
-  EEPROM.write (3, 0);
   hiScore3 = EEPROM.read (4) * 256 + EEPROM.read (5);
-  EEPROM.write (4, 0);
-  EEPROM.write (5, 0);
   for (int i = 0; i < 10; i++)
   {
     hiName1[i] = EEPROM.read (6 + i);
     hiName2[i] = EEPROM.read (16 + i);
     hiName3[i] = EEPROM.read (26 + i);
-    EEPROM.write (6 + i, name[i]);
-    EEPROM.write (16 + i, name[i]);
-    EEPROM.write (26 + i, name[i]);
   }
 }
 
 void loop()
 {
+  // moving through the menu or through the matrix if the screenID is equal to 1
   xValue = analogRead (pinX);
   yValue = analogRead (pinY);
   if (xValue < minThreshold && joyMovedX == false) 
@@ -1146,6 +1145,8 @@ void loop()
       detonationBetweenBeepsSound = millis();
     }
     
+    // detonation animation plus death by detonation; in this case, the game is paused with delay untill the animation is finished    
+
     if (detonationState == true)
     {
       if (millis() - detonationBlinkTime > detonationBlinkLength)
