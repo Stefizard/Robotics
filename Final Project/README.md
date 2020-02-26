@@ -10,4 +10,5 @@ Note that the threshold was made specific for the board and line that I used, so
 Also, the motors' speed depends on the distance between the two wheels.
 
 BOM Sheet:
-https://docs.google.com/spreadsheets/d/1Htry010sDG5Vxl1XxuDkIDsEU6a6pIBbHVVmY9l-o_E
+https://docs.google.com/spreadsheets/d/1Htry010sDG5Vxl1XxuDkIDsEU6a6pIBbHVVmY9l-o_E/edit#gid=1255628761
+
